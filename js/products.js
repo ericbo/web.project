@@ -1,6 +1,6 @@
 /*GLOBAL VRAIABLES*/
-var tableID = "products";									//Id of the prodicts table
-var hostname = window.location.hostname;	//Hostname of the website. 
+var tableID = "products";	//Id of the prodicts table
+var baseURL = window.location.protocol + "//" + window.location.hostname + "/";
 var page; //Current page.
 var size; //Size of page.
 
@@ -95,9 +95,38 @@ function getPagination() {
   });
 
   // We setup our request
-  XHR.open('GET', 'http://' + hostname +'/json/products_size.php');
+  XHR.open('GET', baseURL +'ajax/json/products_size.php');
   XHR.send();
 }
+
+function getProducts(id, page, size) {
+  
+  var XHR = new XMLHttpRequest();
+
+  XHR.addEventListener('load', function(event) {
+    if(XHR.status === 200)
+    {
+	    var data = XHR.responseText;
+
+	    if(data != "")
+	    	document.getElementById(id).innerHTML = data;
+    	else
+    		document.getElementById(id).innerHTML = "No data found...";
+    }
+    else
+    	document.getElementById(id).innerHTML = "No data found...";
+
+    getPagination();
+  });
+
+  // We setup our request
+  XHR.open('GET', baseURL + 'ajax/html/products.php?page=' + page + '&size=' + size);
+  XHR.send();
+}
+
+/*
+Decrepitated functions
+*/
 
 /*
 * This function will populate a table with the given page and size.
@@ -106,7 +135,7 @@ function getPagination() {
 * @param int page
 * @param int size
 * @return void
-*/
+*
 function getProducts(id, page, size) {
   
   var XHR = new XMLHttpRequest();
@@ -133,6 +162,7 @@ function getProducts(id, page, size) {
   XHR.open('GET', 'http://' + hostname + '/json/products.php?page=' + page + '&size=' + size);
   XHR.send();
 }
+*/
 
 /*
 * Using the ID of a table, populate the headers with the values given in the array passed.

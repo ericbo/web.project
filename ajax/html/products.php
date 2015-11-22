@@ -24,5 +24,4 @@ try {
 	$smarty->display($dir . '/../../templates/product-table.tpl');
 } catch(Exception $e) {
 	header("HTTP/1.0 500 Internal Error");
-	echo $e->getMessage();
 }
