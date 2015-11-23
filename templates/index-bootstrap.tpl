@@ -9,7 +9,7 @@
 		  <!-- Nav tabs -->
 		  	<ul class="nav nav-tabs" role="tablist">
 		    	<li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
-		    	<li role="presentation"><a href="#login" aria-controls="login" role="tab" data-toggle="tab">Login</a></li>
+		    	<li role="presentation"><a href="#login" aria-controls="login" role="tab" data-toggle="tab" onclick="changePage('index.php/login')">Login</a></li>
 			</ul>
 		  <!-- Tab panes -->
 		  <div class="tab-content">
@@ -57,7 +57,7 @@
 	</div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="js/utility_functions.js"></script>
-  <script src="js/bootstrap.min.js"></script>
+  <script src="{$baseURL}js/utility_functions.js"></script>
+  <script src="{$baseURL}js/bootstrap.min.js"></script>
 </body>
 {/block}

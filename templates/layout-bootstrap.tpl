@@ -9,7 +9,7 @@
     <link rel="icon" href="../../favicon.ico">
 
     <title>Richards Steak Knives</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="{$baseURL}css/bootstrap.min.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
