@@ -7,8 +7,9 @@
 		</div>
 		<div>
 		  <!-- Nav tabs -->
-		  <ul class="nav nav-tabs" role="tablist">
-		    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+		  	<ul class="nav nav-tabs" role="tablist">
+		    	<li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+		    	<li role="presentation"><a href="#login" aria-controls="login" role="tab" data-toggle="tab">Login</a></li>
 			</ul>
 		  <!-- Tab panes -->
 		  <div class="tab-content">
@@ -32,30 +33,31 @@
 			   	</div>
 			   	<div class="col-xs-12 col-md-4">
 				   	<div class="well well-sm" style="margin-top: 10px;">
-							<h1 style="margin:0; padding-bottom:5px;text-align:center;border-bottom: 1px solid #eee;">Shopping Cart</h1>
-							<table class="table" id="cart">
-								<tr>
-									<td>Items: 0</td>
-								</tr>
-								<tr>
-									<td>Price: $0.00</td>
-								</tr>
-								<tr>
-									<td><button class="btn btn-block btn-success">Checkout</button></td>
-								</tr>
-							</table>
-						</div>
+						<h1 style="margin:0; padding-bottom:5px;text-align:center;border-bottom: 1px solid #eee;">Shopping Cart</h1>
+						<table class="table" id="cart">
+							<tr>
+								<td>Items: 0</td>
+							</tr>
+							<tr>
+								<td>Price: $0.00</td>
+							</tr>
+							<tr>
+								<td><button class="btn btn-block btn-success">Checkout</button></td>
+							</tr>
+						</table>
+					</div>
 			   	</div>
 			    <!--Home Page ENDS-->
 			   </div>
 			   </div>
 			   </div>
+			   <div role="tabpanel" class="tab-pane" id="login">New Page</div>
 		  </div>
 		</div>
 	</div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="js/products.js"></script>
+  <script src="js/utility_functions.js"></script>
   <script src="js/bootstrap.min.js"></script>
 </body>
 {/block}

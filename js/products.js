@@ -9,7 +9,7 @@ var size; //Size of page.
 *****************************************************/
 
 //Run when the page is loaded. Sets up deafaults and loads the table.
-function init() {
+function initProducts() {
 	page = 1; //Default page number when the page is laoded.
 	size = 10; //Default size of page when it is loaded.
 	document.getElementById("size").value = size;
