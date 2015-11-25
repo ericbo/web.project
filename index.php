@@ -6,7 +6,7 @@ include_once($dir . '/smarty/libs/Smarty.class.php');
 
 $smarty = new Smarty;
 $smarty->assign('baseURL', get_base_url());
-$smarty->display($dir . '/templates/index-bootstrap.tpl');
+$smarty->display($dir . '/templates/index.tpl');
 
 /*
 * Used to determin the url that points to the web servers root.

@@ -19,4 +19,14 @@
   {/foreach}
   </tbody>
 </table>
+{/strip}<button id="last" onclick="lastPage()" class="btn btn-primary">Previous Page</button> <button id="next" onclick="nextPage()" class="btn btn-primary">Next Page</button>{strip}
+<div class="pull-right">
+Page Size:
+  <select id="size" onchange="changeSize()">
+    <option value="5" selected="selected">5</option>
+    <option value="10">10</option>
+    <option value="20">20</option>
+    <option value="50">50</option>
+  </select>
+</div>
 {/strip}

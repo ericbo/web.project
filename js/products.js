@@ -3,6 +3,7 @@ var tableID = "products";	//Id of the prodicts table
 var baseURL = window.location.protocol + "//" + window.location.hostname + "/";
 var page; //Current page.
 var size; //Size of page.
+var pageLoaded = false;
 
 /****************************************************
 * 		Simple Function (impliments other funtions)
@@ -12,7 +13,7 @@ var size; //Size of page.
 function initProducts() {
 	page = 1; //Default page number when the page is laoded.
 	size = 10; //Default size of page when it is loaded.
-	document.getElementById("size").value = size;
+
 	getProducts(tableID, page, size);
 }
 
@@ -57,6 +58,7 @@ function uFirst(string) {
 */
 function getPagination() {
 	//Store button elements
+	document.getElementById("size").value = size;
 	var lastButton = document.getElementById("last");
 	var nextButton = document.getElementById("next");
 	var productsSize = 0; //The amount of products stored in the database.
