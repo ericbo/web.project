@@ -158,6 +158,25 @@ function get_products($pageNumber, $pageSize, $filterString) {
 }
 
 # ============================================================================
+# Cart Functions
+# ============================================================================
+
+/*
+* This function simply retrives all the contents of the users cart (from the database).
+*/
+function get_cart($userID) {
+    //TODO
+}
+
+/*
+* This function adds an item to the cart database if it does not already exist. Otherwise
+* it will change the quantity of the item pased in or delete it a non-valid quantity is passed.
+*/
+function update_cart($userID, $itemID, $qty) {
+    //TODO
+}
+
+# ============================================================================
 # Utility functions
 # ============================================================================
 
