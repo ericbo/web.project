@@ -6,7 +6,7 @@ header('Content-type:application/json;charset=utf-8');
 */
 
 if(isset($_POST['itemID']) && isset($_POST['qty'])) {
-	updateCart($_POST['itemID'], $_POST['qty'])
+	updateCart($_POST['itemID'], $_POST['qty']);
 }
 else
 	echo json_encode(displayCart());
