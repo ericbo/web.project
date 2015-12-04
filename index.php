@@ -1,5 +1,5 @@
 <?php
-
+define('WEBSERVER_ROOT', 'store/');
 $dir = dirname(__FILE__);
 
 include_once($dir . '/smarty/libs/Smarty.class.php');
@@ -13,7 +13,7 @@ $smarty->display($dir . '/templates/index.tpl');
 */
 function get_base_url() {
 	if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off')
-		return 'https://' . $_SERVER['SERVER_NAME'] . '/';
+		return 'https://' . $_SERVER['SERVER_NAME'] . WEBSERVER_ROOT;
 	else
-		return 'http://' . $_SERVER['SERVER_NAME'] . '/';
+		return 'http://' . $_SERVER['SERVER_NAME'] . WEBSERVER_ROOT;
 }

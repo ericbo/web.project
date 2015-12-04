@@ -38,7 +38,7 @@
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="{$baseURL}js/utility_functions.js"></script>
     <script src="{$baseURL}js/bootstrap.min.js"></script>
+    {block name=scripts}{/block}
   </body>
 </html>
