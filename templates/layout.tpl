@@ -17,25 +17,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 	</head>
-  <body onload="init()">
-    <div class="container">
-      <div class="page-header">
-        <h1>Richards Steak Knives<small> All natural hardened steel!</small></h1>
-      </div>
-      <div>
-        <!-- Nav tabs -->
-        <ul class="nav nav-tabs" role="tablist">
-          <li role="presentation" class="active"><a href="{$baseURL}" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
-          <li role="presentation"><a href="{$baseURL}login" aria-controls="login" role="tab" data-toggle="tab" onclick="changePage('index.php/login')">Login</a></li>
-        </ul>
-        <!-- Tab panes -->
-        <div class="tab-content">
-          <div role="tabpanel" class="tab-pane active" id="home">
-          {block name=body}{/block}
-          </div>
-        </div>
-      </div>
-    </div>
+  {block name=body}{/block}
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="{$baseURL}js/bootstrap.min.js"></script>

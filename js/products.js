@@ -1,6 +1,6 @@
 /*GLOBAL VRAIABLES*/
 var tableID = "products";	//Id of the prodicts table
-var baseURL = window.location.protocol + "//" + window.location.hostname + "/";
+var baseURL = window.location.protocol + "//" + window.location.hostname + "/store/";
 var page; //Current page.
 var size; //Size of page.
 var pageLoaded = false;
@@ -12,7 +12,7 @@ var pageLoaded = false;
 //Run when the page is loaded. Sets up deafaults and loads the table.
 function initProducts() {
 	page = 1; //Default page number when the page is laoded.
-	size = 10; //Default size of page when it is loaded.
+	size = 5; //Default size of page when it is loaded.
 
 	getProducts(tableID, page, size);
 }
