@@ -10,6 +10,7 @@
         <ul class="nav nav-tabs" role="tablist">
           <li role="presentation" class="active"><a href="{$baseURL}">Home</a></li>
           <li role="presentation"><a href="{$baseURL}login.php">Login</a></li>
+          <li role="presentation"><a href="{$baseURL}cart.php">Cart Details</a></li>
         </ul>
         <!-- Tab panes -->
         <div class="tab-content">
