@@ -165,7 +165,22 @@ function get_products($pageNumber, $pageSize, $filterString) {
 * This function simply retrives all the contents of the users cart (from the database).
 */
 function get_cart($userID) {
-    //TODO
+    $dbh = get_db_connection();
+
+    try {
+        $query = $dbh->prepare("SELECT * FROM cart WHERE userID = ?");
+        $query->execute(array($userID));
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        //log_error($e->getCode(), $e->getMessage());
+        throw new Exception('Internal Server error.');
+    }
+
+    //Close the database connection.
+    $query = null;
+    $dbh = null;
+
+    return $result;
 }
 
 /*
@@ -173,7 +188,95 @@ function get_cart($userID) {
 * it will change the quantity of the item pased in or delete it a non-valid quantity is passed.
 */
 function update_cart($userID, $itemID, $qty) {
-    //TODO
+    if(!is_numeric($qty) || !is_numeric($itemID) || !is_numeric($userID))
+        return false;
+    $qty = floor($qty);
+
+    $dbh = get_db_connection();
+
+    //Check it item is already in the users cart
+    try {
+        $query = $dbh->prepare("SELECT * FROM cart WHERE userID = ? AND productID = ?");
+        $query->execute(array($userID, $itemID));
+    } catch (PDOException $e) {
+        //log_error($e->getCode(), $e->getMessage());
+        throw new Exception('Internal Server error.');
+    }
+
+    if($query->rowCount())
+    {
+        if($qty > 0 && $qty <= 255)
+            //Update Item
+                try {
+                    $query = $dbh->prepare("UPDATE cart SET qty = ? WHERE productID = ? AND userID = ?");
+                    $query->execute(array($qty, $itemID, $userID));
+                } catch (PDOException $e) {
+                    //log_error($e->getCode(), $e->getMessage());
+                    throw new Exception('Internal Server error.');
+                }
+        else
+            //Delete from cart
+                try {
+                    $query = $dbh->prepare("DELETE FROM cart WHERE productID = ? AND userID = ?");
+                    $query->execute(array($itemID, $userID));
+                } catch (PDOException $e) {
+                    //log_error($e->getCode(), $e->getMessage());
+                    throw new Exception('Internal Server error.');
+                }
+    }
+    else
+        if($qty > 0 && $qty <= 255)
+             try {
+                $query = $dbh->prepare("INSERT INTO cart VALUES (?, ?, ?)");
+                $query->execute(array($userID, $itemID, $qty));
+            } catch (PDOException $e) {
+                //log_error($e->getCode(), $e->getMessage());
+                throw new Exception('Internal Server error.');
+            }
+
+    //Close the database connection.
+    $query = null;
+    $dbh = null;
+}
+
+function validID($userID) {
+    $dbh = get_db_connection();
+
+    try {
+        $query = $dbh->prepare("SELECT * FROM user WHERE id = ?");
+        $query->execute(array($userID));
+    } catch (PDOException $e) {
+        //log_error($e->getCode(), $e->getMessage());
+        throw new Exception('Internal Server error.');
+    }
+
+    //Store result before closing DB connection
+    $rows = $query->rowCount();
+
+    //Close the database connection.
+    $query = null;
+    $dbh = null;
+
+    if($rows > 0)
+        return true;
+    return false;
+}
+
+function clear_cart() {
+    $dbh = get_db_connection();
+
+    //Check it item is already in the users cart
+    try {
+        $query = $dbh->prepare("truncate cart");
+        $query->execute();
+    } catch (PDOException $e) {
+        //log_error($e->getCode(), $e->getMessage());
+        throw new Exception('Internal Server error.');
+    }
+
+    //Close the database connection.
+    $query = null;
+    $dbh = null;
 }
 
 # ============================================================================
